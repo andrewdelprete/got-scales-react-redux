@@ -1,11 +1,11 @@
-import { createStore as initialCreateStore } from 'redux';
+import { createStore as initialCreateStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
 
-export let createStore = initialCreateStore
+export let createStore = applyMiddleware(thunk)(initialCreateStore)
 
 if (__DEV__) {
-    let { devTools, persistState } = require('redux-devtools');
-    let { compose, applyMiddleware } = require('redux');
-    let thunk = require('redux-thunk');
+    let { devTools, persistState } = require('redux-devtools')
+    let { compose } = require('redux')
 
     createStore = compose(
         // Enables your middleware:
@@ -14,5 +14,5 @@ if (__DEV__) {
         devTools(),
         // Lets you write ?debug_session=<name> in address bar to persist debug sessions
         persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
-    )(createStore);
+    )(initialCreateStore)
 }

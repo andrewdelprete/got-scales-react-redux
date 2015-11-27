@@ -19,11 +19,6 @@ module.exports = {
     plugins: [
         new ExtractTextPlugin('style', 'css/[name].min.css'),
         new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        }),
         devFlagPlugin
     ],
     module: {
