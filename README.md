@@ -7,4 +7,4 @@ Got Scales? is a simple Javascript module that allows you to create music scales
 > npm run dev-server
 ```
 ## Got Scales? Library
-https://github.com/Pathsofdesign/got-scales
+https://github.com/andrewdelprete/got-scales
